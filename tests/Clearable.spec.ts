@@ -13,17 +13,6 @@ describe('Clearable', function () {
     /**
      * 
      */
-    it('returns the given parameter for chaining purposes', function () {
-      const clearable = { clear: jest.fn(_ => clearable) }
-
-      const result: Clearable = Clearable.clear(clearable)
-
-      expect(result).toBe(clearable)
-    })
-
-    /**
-     * 
-     */
     it('calls the clear method of the given instance', function () {
       const clearable = { clear: jest.fn(_ => clearable) }
 

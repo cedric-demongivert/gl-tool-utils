@@ -9,7 +9,7 @@ export interface Copiable {
    *
    * @return This instance, for chaining purposes.
    */
-  copy(toCopy: any): this
+  copy(toCopy: any): void
 }
 
 /**
@@ -24,7 +24,7 @@ export namespace Copiable {
    * 
    * @return The updated destination instance.
    */
-  export function move<Target extends Copiable>(origin: Target, destination: Target): Target {
-    return destination.copy(origin)
+  export function move<Target extends Copiable>(origin: Target, destination: Target): void {
+    destination.copy(origin)
   }
 }

@@ -4,10 +4,8 @@
 export interface Clearable {
   /**
    * Turn back this instance to its "default" state.
-   *
-   * @return A reference to this instance for chaining purposes.
    */
-  clear(): this
+  clear(): void
 }
 
 /**
@@ -21,7 +19,7 @@ export namespace Clearable {
    * 
    * @return A reference to the cleared instance for chaining purposes.
    */
-  export function clear<Target extends Clearable>(value: Target): Target {
-    return value.clear()
+  export function clear<Target extends Clearable>(value: Target): void {
+    value.clear()
   }
 }
