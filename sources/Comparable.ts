@@ -90,4 +90,11 @@ export namespace Comparable {
   export function equals(left: Comparable | null | undefined, right: Comparable | null | undefined): boolean {
     return left == null ? left === right : left.equals(right)
   }
+
+  /**
+   * 
+   */
+  export function is(value: unknown): value is Comparable {
+    return typeof value === 'object' && (value as any).equals != null && typeof (value as any).equals === 'function'
+  }
 }
