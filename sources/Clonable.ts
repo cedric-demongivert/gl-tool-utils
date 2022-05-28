@@ -1,11 +1,11 @@
 /**
  * A class of objects that can return a copy of themselves. 
  */
-export interface Clonable {
+export interface Clonable<Target = any> {
   /**
    * @return A reference to a copy of this instance.
    */
-  clone(): any
+  clone(): Target & Clonable<Target>
 }
 
 /**
@@ -35,7 +35,7 @@ export namespace Clonable {
    *
    * @return A reference to a copy of the given clonable instance.
    */
-  export function copy<Target extends Clonable>(toCopy: Target): Target
+  export function copy<Target extends Clonable<Target>>(toCopy: Target): Target
   /**
    * If defined, returns a reference to a copy of the given clonable instance.
    * 
@@ -45,8 +45,8 @@ export namespace Clonable {
    *
    * @return If defined, a reference to a copy of the given clonable instance, the given parameter otherwise.
    */
-  export function copy<Target extends Clonable>(toCopy: Target | null | undefined): Target | null | undefined
-  export function copy<Target extends Clonable>(toCopy: Target | null | undefined): Target | null | undefined {
+  export function copy<Target extends Clonable<Target>>(toCopy: Target | null | undefined): Target | null | undefined
+  export function copy<Target extends Clonable<Target>>(toCopy: Target | null | undefined): Target | null | undefined {
     return toCopy == null ? toCopy : toCopy.clone()
   }
 }

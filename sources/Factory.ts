@@ -1,7 +1,7 @@
 /**
  * 
  */
-export type Factory<T = any, Parameters extends Array<any> = Array<any>> = (...parameters: Parameters) => T
+export type Factory<Product = unknown, Parameters extends Array<unknown> = Array<unknown>> = (...parameters: Parameters) => Product
 
 /**
  * 
@@ -11,20 +11,25 @@ export namespace Factory {
    * 
    */
   export function instantiator<
-    T = any,
-    DefaultParameters extends Array<any> = Array<any>,
-    OtherParameters extends Array<any> = Array<any>
+    Product = unknown,
+    DefaultParameters extends Array<unknown> = Array<unknown>,
+    OtherParameters extends Array<unknown> = Array<unknown>
   >(
-    factory: Factory<T, [...DefaultParameters, ...OtherParameters]>,
+    factory: Factory<Product, [...DefaultParameters, ...OtherParameters]>,
     ...parameters: DefaultParameters
-  ): Factory<T, OtherParameters> {
-    return factory.bind(undefined, ...parameters)
+  ): Factory<Product, OtherParameters> {
+    return function (...otherParameters: OtherParameters): Product {
+      return factory(...parameters, ...otherParameters)
+    }
   }
 
   /**
-   * @todo documentation
+   * 
    */
-  export function instantiate<T = any, Parameters extends Array<any> = Array<any>>(factory: Factory<T, Parameters>, ...parameters: Parameters): T {
+  export function instantiate<
+    Product = unknown,
+    Parameters extends Array<unknown> = Array<unknown>
+  >(factory: Factory<Product, Parameters>, ...parameters: Parameters): Product {
     return factory(...parameters)
   }
 }

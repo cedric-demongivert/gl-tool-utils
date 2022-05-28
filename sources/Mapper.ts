@@ -17,8 +17,8 @@ export namespace Mapper {
   /**
    * 
    */
-  export function toString<Input>(input: Input): string {
-    return input.toString()
+  export function toString(input: unknown): string {
+    return input === null ? 'null' : input === undefined ? 'undefined' : (input as any).toString()
   }
 
   /**

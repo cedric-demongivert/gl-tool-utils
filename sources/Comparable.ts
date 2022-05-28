@@ -95,6 +95,6 @@ export namespace Comparable {
    * 
    */
   export function is(value: unknown): value is Comparable {
-    return typeof value === 'object' && (value as any).equals != null && typeof (value as any).equals === 'function'
+    return typeof value === 'object' && typeof (value as any).equals === 'function'
   }
 }
