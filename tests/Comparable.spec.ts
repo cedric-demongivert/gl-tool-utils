@@ -36,7 +36,7 @@ describe('Comparable', function () {
      * 
      */
     it('returns false if a comparable parameter is compared to a null or an undefined reference', function () {
-      const comparable = { equals: jest.fn(x => false) }
+      const comparable = { equals: jest.fn(_ => false) }
 
       expect(Comparable.equals(comparable, undefined)).toBeFalsy()
       expect(Comparable.equals(comparable, null)).toBeFalsy()
@@ -48,8 +48,8 @@ describe('Comparable', function () {
      * 
      */
     it('calls the equals method of the first parameter', function () {
-      const left = { equals: jest.fn(x => false) }
-      const right = { equals: jest.fn(x => false) }
+      const left = { equals: jest.fn(_ => false) }
+      const right = { equals: jest.fn(_ => false) }
 
       expect(left.equals.mock.calls.length).toBe(0)
       expect(right.equals.mock.calls.length).toBe(0)
@@ -64,8 +64,10 @@ describe('Comparable', function () {
      * 
      */
     it('returns the output of the equals method of the first parameter', function () {
-      const left = { equals: jest.fn(x => x === left) }
-      const right = { equals: jest.fn(x => false) }
+      const left = { equals: jest.fn() }
+      const right = { equals: jest.fn(_ => false) }
+
+      left.equals.mockImplementation(x => x === left)
 
       expect(Comparable.equals(left, right)).toBeFalsy()
       expect(Comparable.equals(left, left)).toBeTruthy()
