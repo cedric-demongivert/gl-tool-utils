@@ -15,7 +15,7 @@ export interface Comparable {
    *   - For any non-null reference value x, x.equals(null) should return false.
    *   - For any non-null reference value x, x.equals(undefined) should return false.
    */
-  equals(other: any): boolean
+  equals(other: unknown): boolean
 }
 
 /**
