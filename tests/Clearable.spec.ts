@@ -14,7 +14,9 @@ describe('Clearable', function () {
      * 
      */
     it('calls the clear method of the given instance', function () {
-      const clearable = { clear: jest.fn(_ => clearable) }
+      const clearable = { clear: jest.fn() }
+
+      clearable.clear.mockReturnValue(clearable)
 
       expect(clearable.clear.mock.calls.length).toBe(0)
 
