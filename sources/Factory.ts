@@ -1,7 +1,7 @@
 /**
  * 
  */
-export type Factory<Product = unknown, Parameters extends Array<unknown> = Array<unknown>> = (...parameters: Parameters) => Product
+export type Factory<Product = unknown, Parameters extends Array<unknown> = []> = (...parameters: Parameters) => Product
 
 /**
  * 
