@@ -85,4 +85,46 @@ export namespace Empty {
   export function object(): Readonly<object> {
     return OBJECT
   }
+
+  /**
+   * 
+   */
+  export function zero(): 0 {
+    return 0
+  }
+
+  /**
+   * 
+   */
+  export function one(): 1 {
+    return 1
+  }
+
+  /**
+   * 
+   */
+  export function truthy(): true {
+    return true
+  }
+
+  /**
+   * 
+   */
+  export function falsy(): false {
+    return false
+  }
+
+  /**
+   * 
+   */
+  export function nullptr(): null {
+    return null
+  }
+
+  /**
+   * 
+   */
+  export function undef(): undefined {
+    return undefined
+  }
 }
