@@ -60,6 +60,38 @@ export namespace equals {
   /**
    * 
    */
+  export function fast(left: null, right: undefined): false
+  /**
+   * 
+   */
+  export function fast(left: undefined, right: null): false
+  /**
+   * 
+   */
+  export function fast(left: undefined, right: undefined): true
+  /**
+   * 
+   */
+  export function fast(left: null, right: null): true
+  /**
+   * 
+   */
+  export function fast(left: null | undefined, right: unknown): false
+  /**
+   * 
+   */
+  export function fast(left: unknown, right: null | undefined): false
+  /**
+   * 
+   */
+  export function fast(left: unknown, right: unknown): boolean
+  export function fast(left: unknown, right: unknown): boolean {
+    return left === right || (Comparable.is(left) && left.equals(right))
+  }
+
+  /**
+   * 
+   */
   export function arrays(left: Array<unknown>, right: Array<unknown>): boolean {
     if (left.length !== right.length) return false
 
