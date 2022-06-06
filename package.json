@@ -1,6 +1,6 @@
 {
   "name": "@cedric-demongivert/gl-tool-utils",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "The gl-tool toolbelt.",
   "main": "index.js",
   "types": "./types/index.d.ts",
