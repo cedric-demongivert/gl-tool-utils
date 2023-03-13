@@ -16,7 +16,7 @@
 # Except configuration files.
 !.babelrc
 !.gitignore
-!.npmignore
+!.npmingore
 !jest.config.js
 !package.json
 !tsconfig.json
