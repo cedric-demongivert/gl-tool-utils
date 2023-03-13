@@ -12,7 +12,7 @@
  *
  * @return A number that describe the type of relation between the operands.
  */
-export type Comparator<Left, Right> = (left: Left, right: Right) => number
+export type Comparator<Left, Right = Left> = (left: Left, right: Right) => number
 
 /**
  * 
